@@ -68,16 +68,32 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Box/Box.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Card/Card.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/CardContent/CardContent.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Typography/Typography.js");
 /* harmony import */ var _utils_api__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utils/api */ "./src/utils/api.ts");
 
 
+
 const WeatherCard = ({ city }) => {
+    const [WeatherData, setWeatherData] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
     (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
         (0,_utils_api__WEBPACK_IMPORTED_MODULE_1__.fetchOpenWeatherData)(city)
-            .then((data) => console.log(data))
+            .then((data) => setWeatherData(data))
             .catch((err) => console.log(err));
     }, [city]);
-    return react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, city);
+    if (!WeatherData) {
+        return react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Loading...");
+    }
+    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_2__["default"], { mx: "4px", my: "16px" },
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["default"], null,
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_4__["default"], null,
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_5__["default"], { variant: "h5" }, WeatherData.name),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_5__["default"], { variant: "body1" }, Math.round(WeatherData.main.temp)),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_5__["default"], { variant: "body1" },
+                    "Feels like: ",
+                    Math.round(WeatherData.main.feels_like))))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (WeatherCard);
 
@@ -118,7 +134,8 @@ __webpack_require__.r(__webpack_exports__);
 
 const App = () => {
     return (react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null,
-        react__WEBPACK_IMPORTED_MODULE_0__.createElement(_WeatherCard__WEBPACK_IMPORTED_MODULE_3__["default"], { city: "Istanbul" })));
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(_WeatherCard__WEBPACK_IMPORTED_MODULE_3__["default"], { city: "Istanbul" }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(_WeatherCard__WEBPACK_IMPORTED_MODULE_3__["default"], { city: "Kars" })));
 };
 const root = document.createElement("div");
 document.body.appendChild(root);
@@ -326,7 +343,7 @@ function fetchOpenWeatherData(city) {
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["vendors-node_modules_css-loader_dist_runtime_api_js-node_modules_css-loader_dist_runtime_cssW-1b44d9"], () => (__webpack_require__("./src/popup/popup.tsx")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["vendors-node_modules_css-loader_dist_runtime_api_js-node_modules_css-loader_dist_runtime_cssW-1b44d9","vendors-node_modules_material-ui_core_esm_Box_Box_js-node_modules_material-ui_core_esm_Card_C-705ea9"], () => (__webpack_require__("./src/popup/popup.tsx")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
