@@ -72,7 +72,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Grid/Grid.js");
 /* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Typography/Typography.js");
 /* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/TextField/TextField.js");
-/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Button/Button.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Switch/Switch.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Button/Button.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var _options_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./options.css */ "./src/options/options.css");
 /* harmony import */ var _utils_storage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../utils/storage */ "./src/utils/storage.ts");
@@ -89,8 +90,10 @@ const App = () => {
         (0,_utils_storage__WEBPACK_IMPORTED_MODULE_4__.getStoredOptions)().then((options) => setOptions(options));
     }, []);
     const handleHomeCityChange = (homeCity) => {
-        console.log(homeCity);
         setOptions(Object.assign(Object.assign({}, options), { homeCity }));
+    };
+    const handleAutoOverlayChange = (hasAutoOverlay) => {
+        setOptions(Object.assign(Object.assign({}, options), { hasAutoOverlay }));
     };
     const handleSaveButtonClick = () => {
         setFormState("saving");
@@ -114,7 +117,10 @@ const App = () => {
                         react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_9__["default"], { variant: "body1" }, "Home City Name"),
                         react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_10__["default"], { fullWidth: true, placeholder: "Enter a home city name", value: options.homeCity, onChange: (e) => handleHomeCityChange(e.target.value), disabled: isFieldsDisabled })),
                     react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_8__["default"], { item: true },
-                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_11__["default"], { variant: "contained", color: "primary", onClick: handleSaveButtonClick, disabled: isFieldsDisabled }, formState === "ready" ? "Save" : "Saving...")))))));
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_9__["default"], { variant: "body1" }, "Auto toggle overlay on webpage load"),
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_11__["default"], { color: "primary", checked: options.hasAutoOverlay, onChange: (event, checked) => handleAutoOverlayChange(checked) })),
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_8__["default"], { item: true },
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_12__["default"], { variant: "contained", color: "primary", onClick: handleSaveButtonClick, disabled: isFieldsDisabled }, formState === "ready" ? "Save" : "Saving...")))))));
 };
 const root = document.createElement("div");
 document.body.appendChild(root);
@@ -379,7 +385,7 @@ function getStoredOptions() {
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["vendors-node_modules_material-ui_core_esm_Box_Box_js-node_modules_material-ui_core_esm_Button-393dad","vendors-node_modules_material-ui_core_esm_TextField_TextField_js"], () => (__webpack_require__("./src/options/options.tsx")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["vendors-node_modules_material-ui_core_esm_Box_Box_js-node_modules_material-ui_core_esm_Button-e4dabe","vendors-node_modules_material-ui_core_esm_Switch_Switch_js-node_modules_material-ui_core_esm_-908ff0"], () => (__webpack_require__("./src/options/options.tsx")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

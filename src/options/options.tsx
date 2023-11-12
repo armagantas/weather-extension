@@ -8,6 +8,7 @@ import {
   CardContent,
   Typography,
   TextField,
+  Switch,
 } from "@material-ui/core";
 import ReactDOM from "react-dom";
 import "./options.css";
@@ -28,11 +29,16 @@ const App: React.FC<{}> = () => {
   }, []);
 
   const handleHomeCityChange = (homeCity: string) => {
-    console.log(homeCity);
-
     setOptions({
       ...options,
       homeCity,
+    });
+  };
+
+  const handleAutoOverlayChange = (hasAutoOverlay: boolean) => {
+    setOptions({
+      ...options,
+      hasAutoOverlay,
     });
   };
 
@@ -67,6 +73,16 @@ const App: React.FC<{}> = () => {
                 value={options.homeCity}
                 onChange={(e) => handleHomeCityChange(e.target.value)}
                 disabled={isFieldsDisabled}
+              />
+            </Grid>
+            <Grid item>
+              <Typography variant="body1">
+                Auto toggle overlay on webpage load
+              </Typography>
+              <Switch
+                color="primary"
+                checked={options.hasAutoOverlay}
+                onChange={(event, checked) => handleAutoOverlayChange(checked)}
               />
             </Grid>
             <Grid item>

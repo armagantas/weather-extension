@@ -12,7 +12,7 @@ import {
 import { Add as AddIcon } from "@material-ui/icons";
 import "./popup.css";
 import "fontsource-roboto";
-import WeatherCard from "./WeatherCard";
+import WeatherCard from "../components/WeatherCard";
 import {
   setStoredCities,
   getStoredCities,
